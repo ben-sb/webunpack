@@ -41,9 +41,10 @@ Script packed with webpack
 }]);
 ```
 
-After unpacking<br/>
+<br/>
+After unpacking, two modules (module0.js and module1.js) are created along with an index.js file that contains some utility functions used and calls the entry module.<br/>
 
-module0.js
+**module0.js**
 ```js
 function v0(x0) {
   console.log(x0);
@@ -51,7 +52,7 @@ function v0(x0) {
 exports.default = v0;
 ```
 
-module1.js
+**module1.js**
 ```js
 const utils = require("./index.js");
 utils.r(exports);
@@ -61,7 +62,7 @@ var c1 = 'Hello World';
 b1(c1);
 ```
 
-index.js
+**index.js**
 ```js
 // utility functions
 function c0() {}

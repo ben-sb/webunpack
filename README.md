@@ -1,7 +1,7 @@
 # webunpack
 Detects modules packed with webpack and extracts them to individual files. Handles imports and exports, and creates an index.js file that contains the webpack util functions and calls the entry module.
 
-Currently only works on some (older???) versions of webpack, if you have an example script using a newer version create an issue.
+Currently only works on some (older???) versions of webpack, if you have an example script using a different version create an issue.
 
 ## Example
 Script packed with webpack
@@ -41,7 +41,26 @@ Script packed with webpack
 }]);
 ```
 
-After unpacking
+After unpacking<br/>
+
+module0.js
+```js
+function v0(x0) {
+  console.log(x0);
+}
+exports.default = v0;
+```
+
+module1.js
+```js
+const utils = require("./index.js");
+utils.r(exports);
+
+var b1 = require("./module0").default;
+var c1 = 'Hello World';
+b1(c1);
+```
+
 index.js
 ```js
 // utility functions
@@ -62,24 +81,6 @@ module.exports = c0;
 
 // entry point
 require("./module1");
-```
-
-module0.js
-```js
-function v0(x0) {
-  console.log(x0);
-}
-exports.default = v0;
-```
-
-module1.js
-```js
-const utils = require("./index.js");
-utils.r(exports);
-
-var b1 = require("./module0").default;
-var c1 = 'Hello World';
-b1(c1);
 ```
 
 ## To Run

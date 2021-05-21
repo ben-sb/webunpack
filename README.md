@@ -1,7 +1,7 @@
 # webunpack
 Detects modules packed with webpack and extracts them to individual files. Handles imports and exports, and creates an index.js file that contains the webpack util functions and calls the entry module.
 
-Currently only works on some (older???) versions of webpack, if you have an example script using a different version create an issue.
+Currently only works on some (older?) versions of webpack, if you have an example script using a different version create an issue.
 
 ## Example
 Script packed with webpack

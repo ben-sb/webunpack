@@ -25,7 +25,6 @@ export default class Unpacker {
             enter(path: NodePath) {
                 if (self.isWebpackFunction(path)) {
                     const webpackFunction = (path.node as any).expression.argument.callee as t.FunctionExpression;
-                    const modules: Module[] = [];
                     let utilsName;
                     let utilsExpression;
                     let entryModule;
@@ -44,6 +43,7 @@ export default class Unpacker {
                         return;
                     }
                     
+                    const modules: Module[] = [];
                     const functions = (path.node as any).expression.argument.arguments[0].elements;
                     for (let i=0; i<functions.length; i++) {
                         const func = functions[i];
